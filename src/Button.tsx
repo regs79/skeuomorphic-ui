@@ -5,9 +5,9 @@ import styles from './Button.module.css';
 export type ButtonVariant = 'primary' | 'secondary' | 'link' | 'danger' | 'quiet';
 
 type ButtonProps = ComponentProps<'button'> & {
-  variant?: ButtonVariant;
+  variant?: ButtonVariant | undefined;
   /** Full width. Text variants also grow to a tappable height. */
-  block?: boolean;
+  block?: boolean | undefined;
 };
 
 export function Button({ variant = 'primary', block, className, type = 'button', ...rest }: ButtonProps) {
@@ -31,7 +31,7 @@ type ChipProps = Omit<ComponentProps<'button'>, 'aria-pressed'> & {
   /** Omit for a chip that is an action rather than a toggle. */
   pressed?: boolean | undefined;
   /** Drawn as an outline: a thing that could be created by tapping it. */
-  suggested?: boolean;
+  suggested?: boolean | undefined;
 };
 
 /** A pill toggle. Pressed shows a tick as well as a fill. */
@@ -55,7 +55,7 @@ type SegmentedProps<T> = {
   onChange: (value: T) => void;
   /** Accessible name for the group. Omit when a visible Field label already names it. */
   label?: string | undefined;
-  className?: string;
+  className?: string | undefined;
 };
 
 /** One of a few, with radio semantics. Values are compared with ===. */

@@ -7,14 +7,14 @@ import styles from './Field.module.css';
 
 type FieldProps = {
   label: ReactNode;
-  hint?: ReactNode;
+  hint?: ReactNode | undefined;
   /**
    * A `label` wraps one control, so tapping the caption focuses it. Use `div`
    * when the field holds buttons (chips, a segmented control): a label would
    * forward the tap to the first of them.
    */
-  as?: 'label' | 'div';
-  className?: string;
+  as?: 'label' | 'div' | undefined;
+  className?: string | undefined;
   children: ReactNode;
 };
 
@@ -32,19 +32,19 @@ export function Field({ label, hint, as = 'label', className, children }: FieldP
 
 export type InputSize = 'sm' | 'md' | 'lg';
 
-type InputProps = Omit<ComponentProps<'input'>, 'size'> & { size?: InputSize };
+type InputProps = Omit<ComponentProps<'input'>, 'size'> & { size?: InputSize | undefined };
 
 export function Input({ size, className, ...rest }: InputProps) {
   return <input {...rest} className={cx(styles.input, className)} data-size={size === 'md' ? undefined : size} />;
 }
 
-type SelectProps = Omit<ComponentProps<'select'>, 'size'> & { size?: InputSize };
+type SelectProps = Omit<ComponentProps<'select'>, 'size'> & { size?: InputSize | undefined };
 
 export function Select({ size, className, ...rest }: SelectProps) {
   return <select {...rest} className={cx(styles.input, className)} data-size={size === 'md' ? undefined : size} />;
 }
 
-type InlineFormProps = ComponentProps<'form'> & { size?: InputSize };
+type InlineFormProps = ComponentProps<'form'> & { size?: InputSize | undefined };
 
 /** Controls in one line: the inputs grow, the buttons keep their width. */
 export function InlineForm({ size, className, ...rest }: InlineFormProps) {
@@ -53,14 +53,14 @@ export function InlineForm({ size, className, ...rest }: InlineFormProps) {
 
 type AddFormProps = {
   /** Called with the trimmed text; the field clears first so the new row does not lag it. */
-  onAdd: (text: string) => void | Promise<void>;
+  onAdd: (text: string) => unknown;
   placeholder: string;
   /** The input's accessible name. Defaults to the placeholder. */
-  label?: string;
-  action?: string;
-  size?: InputSize;
-  autoCapitalize?: ComponentProps<'input'>['autoCapitalize'];
-  className?: string;
+  label?: string | undefined;
+  action?: string | undefined;
+  size?: InputSize | undefined;
+  autoCapitalize?: ComponentProps<'input'>['autoCapitalize'] | undefined;
+  className?: string | undefined;
 };
 
 /** A text field with an Add button: the bottom of every "list of things" screen. */

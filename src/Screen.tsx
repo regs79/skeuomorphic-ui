@@ -22,12 +22,12 @@ type HeaderProps = {
   onBack?: (() => void) | undefined;
   backLabel?: string | undefined;
   /** Replaces the back button: a Cancel link, say. */
-  leading?: ReactNode;
-  trailing?: ReactNode;
+  leading?: ReactNode | undefined;
+  trailing?: ReactNode | undefined;
   /** A colour rule under the header, for a screen that belongs to one thing. */
   accent?: string | undefined;
-  size?: 'default' | 'large';
-  className?: string;
+  size?: 'default' | 'large' | undefined;
+  className?: string | undefined;
 };
 
 /**
@@ -57,7 +57,7 @@ export function ScreenHeader({ title, onBack, backLabel = 'Back', leading, trail
 
 type BodyProps = ComponentProps<'main'> & {
   /** Stack children with air between them, for a form. */
-  stack?: boolean;
+  stack?: boolean | undefined;
 };
 
 export function ScreenBody({ stack, className, ...rest }: BodyProps) {
@@ -66,7 +66,7 @@ export function ScreenBody({ stack, className, ...rest }: BodyProps) {
 
 type BarProps = ComponentProps<'div'> & {
   /** Children stack vertically instead of sitting in a row. */
-  stack?: boolean;
+  stack?: boolean | undefined;
 };
 
 /** Sticky at the bottom, above the home indicator. */
@@ -76,7 +76,7 @@ export function BottomBar({ stack, className, ...rest }: BarProps) {
 
 type EmptyProps = ComponentProps<'div'> & {
   /** Take the whole screen and centre, for a first-run state with a button in it. */
-  fill?: boolean;
+  fill?: boolean | undefined;
 };
 
 /** "Nothing here yet." Muted, centred, never an error. */

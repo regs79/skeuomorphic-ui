@@ -41,17 +41,18 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* One line of controls: an input that grows and a button that does not. */
+/* One line of controls: the first grows, the rest keep their width. */
 .inline {
   display: flex;
   align-items: stretch;
   gap: 0.5rem;
 }
-.inline > .input {
-  flex: 1;
-}
-.inline > :not(.input) {
+.inline > * {
   flex: 0 0 auto;
+}
+.inline > :first-child {
+  flex: 1;
+  min-width: 0;
 }
 
 /* The add form's button squares off to match the input beside it. */

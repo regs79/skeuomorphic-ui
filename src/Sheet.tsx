@@ -5,14 +5,14 @@ import styles from './Sheet.module.css';
 type SheetProps = {
   /** Accessible name of the dialog. */
   label: string;
-  title?: ReactNode;
+  title?: ReactNode | undefined;
   /** An action on the left of the title: Remove, Cancel. */
-  leading?: ReactNode;
+  leading?: ReactNode | undefined;
   /** An action on the right: Done. */
-  trailing?: ReactNode;
+  trailing?: ReactNode | undefined;
   /** Tapping the backdrop. */
   onDismiss: () => void;
-  className?: string;
+  className?: string | undefined;
   children: ReactNode;
 };
 

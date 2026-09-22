@@ -8,9 +8,9 @@ export type MenuItem = { label: string; onSelect: () => void };
 type MenuProps = {
   items: MenuItem[];
   /** Below a rule, after the items: a version tag, say. */
-  footer?: ReactNode;
-  label?: string;
-  icon?: ReactNode;
+  footer?: ReactNode | undefined;
+  label?: string | undefined;
+  icon?: ReactNode | undefined;
 };
 
 /** A top-right overflow menu: a trigger, a backdrop, and a short list. */
