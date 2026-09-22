@@ -62,13 +62,13 @@ pnpm build    # static Storybook into storybook-static/
 The Storybook toolbar has a light/dark toggle and a text-scale toggle; check
 new work at 1.6× before calling it done.
 
-To work on this and a consumer at once, link it instead of installing it:
-
-```sh
-cd ../the-app && pnpm link ../skeuomorphic-ui
-```
-
-and swap back to the pinned `github:` spec before releasing the consumer.
+To work on this and a consumer at once, do not `pnpm link` it — that rewrites
+the consumer's `package.json` and breaks its production build. Have the
+consumer prefer a sibling checkout when one exists and fall back to the pin
+otherwise: a Vite `resolve.alias` guarded by `existsSync`, plus a tsconfig
+`paths` entry listing the sibling path first and `node_modules` second (TS
+takes the first candidate that exists). shop-list's `packages/client/ui-source.ts`
+is the reference. A CI or Docker build has no sibling, so it always sees the pin.
 
 ## Layout of `src/`
 
