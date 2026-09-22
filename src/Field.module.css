@@ -1,0 +1,64 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.input {
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: 1.05rem;
+  padding: 0.75rem 0.9rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--fg);
+}
+
+/* The add bar's input: a little bigger, it is the main control on the screen. */
+.input[data-size='lg'] {
+  font-size: 1.1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Inline beside a label, a date say. */
+.input[data-size='sm'] {
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: calc(var(--radius) - 0.15rem);
+}
+
+/* Numbers line up when they are typed as numbers. */
+.input[inputmode='decimal'],
+.input[inputmode='numeric'] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* One line of controls: an input that grows and a button that does not. */
+.inline {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+.inline > .input {
+  flex: 1;
+}
+.inline > :not(.input) {
+  flex: 0 0 auto;
+}
+
+/* The add form's button squares off to match the input beside it. */
+.inline > .action {
+  border-radius: var(--radius);
+  padding-block: 0;
+}
+.inline[data-size='lg'] > .action {
+  border-radius: var(--radius-lg);
+}

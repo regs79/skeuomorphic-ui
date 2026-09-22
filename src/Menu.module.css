@@ -1,0 +1,61 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: none;
+  padding: 0.4rem;
+  color: var(--fg);
+  cursor: pointer;
+}
+
+/* Above a toast (z-index 20), which also lives at the top right. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgb(0 0 0 / 0.2);
+}
+
+.menu {
+  position: absolute;
+  top: calc(env(safe-area-inset-top) + 3rem);
+  right: calc(env(safe-area-inset-right) + 0.75rem);
+  min-width: 12rem;
+  max-width: calc(100vw - 1.5rem);
+  box-sizing: border-box;
+  padding: 0.35rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  text-align: left;
+  border: 0;
+  border-radius: 0.6rem;
+  background: none;
+  padding: 0.7rem 0.75rem;
+  font-size: 1rem;
+  color: var(--fg);
+  cursor: pointer;
+}
+.item:active {
+  background: var(--surface);
+}
+
+.rule {
+  height: 0.05rem;
+  margin: 0.35rem 0.25rem;
+  border: 0;
+  background: var(--surface);
+}
+
+.footer {
+  padding: 0.4rem 0.75rem 0.25rem;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}

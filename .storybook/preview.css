@@ -1,0 +1,14 @@
+/* Only what the canvas needs; the tokens file owns colours and type. */
+html {
+  font-size: calc(100% * var(--scale, 1));
+}
+body {
+  margin: 0;
+}
+/* Stories that render a whole Screen want the full viewport; everything
+   else sits in a phone-width column with a little air. */
+.sb-show-main:not(.sb-main-fullscreen) #storybook-root {
+  max-width: 26rem;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}

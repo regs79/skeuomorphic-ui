@@ -1,0 +1,33 @@
+/* Top right, clear of the Dynamic Island and below the sticky header, so the
+   menu trigger up there stays tappable while the toast is up. The offset is
+   in rem so it tracks the header's own rem padding as --scale grows. */
+.toast {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 3.25rem);
+  right: calc(env(safe-area-inset-right) + 0.75rem);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: calc(100vw - 1.5rem);
+  padding: 0.6rem 0.9rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.95rem;
+  box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.25);
+  cursor: pointer;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.action {
+  flex: 0 0 auto;
+  font-weight: 700;
+  text-decoration: underline;
+}

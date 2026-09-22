@@ -1,0 +1,126 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.button[data-block] {
+  width: 100%;
+}
+
+.button[data-variant='primary'] {
+  background: var(--fg);
+  color: var(--bg);
+}
+.button[data-variant='primary']:disabled {
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.button[data-variant='secondary'] {
+  background: var(--surface);
+  color: var(--fg);
+}
+.button[data-variant='secondary']:disabled {
+  color: var(--muted);
+}
+
+/* Text-only actions: Cancel, Done, Remove. */
+.button[data-variant='link'],
+.button[data-variant='danger'],
+.button[data-variant='quiet'] {
+  background: none;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+}
+.button[data-variant='link'] {
+  color: var(--fg);
+}
+.button[data-variant='link']:disabled {
+  color: var(--muted);
+}
+.button[data-variant='danger'] {
+  color: var(--danger);
+}
+/* De-emphasised: "3 other areas", "Use the chain's order instead". */
+.button[data-variant='quiet'] {
+  color: var(--muted);
+}
+
+/* Full-width text buttons get a row's worth of padding to be tappable. */
+.button[data-block][data-variant='link'],
+.button[data-block][data-variant='danger'],
+.button[data-block][data-variant='quiet'] {
+  min-height: 2.75rem;
+  padding: 0.75rem;
+}
+
+/* Chips: toggles that sit in a wrapping row. Pressed is a fill *and* a check
+   mark, so the state never rests on colour alone. */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.chip[aria-pressed='true'] {
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 600;
+}
+.chip[aria-pressed='true']::before {
+  content: '✓';
+}
+/* An outline: something that could exist but does not yet. */
+.chip[data-suggested] {
+  background: none;
+  box-shadow: inset 0 0 0 0.08rem var(--muted);
+  color: var(--muted);
+}
+
+/* A segmented control: one of a few, radio semantics. */
+.segmented {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.segment {
+  flex: 1;
+  padding: 0.6rem 0.5rem;
+  border: 0;
+  border-radius: calc(var(--radius) - 0.2rem);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.segment[aria-checked='true'] {
+  background: var(--fg);
+  color: var(--bg);
+}

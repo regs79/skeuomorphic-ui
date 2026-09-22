@@ -1,0 +1,3 @@
+# Install-script policy (pnpm 12): esbuild fetches its platform binary.
+allowBuilds:
+  esbuild: true

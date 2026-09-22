@@ -1,0 +1,87 @@
+/*
+ * The design tokens. Import once, from the app's entry point:
+ *
+ *   import 'skeuomorphic-ui/tokens.css';
+ *
+ * Everything in the library is sized in rem so one --scale moves the whole
+ * layout: set it on :root and the type scale, spacing and tap targets follow.
+ * Colours switch on the OS theme; an explicit [data-theme] wins over it.
+ */
+:root {
+  --scale: 1;
+  color-scheme: light dark;
+
+  --bg: #f2f2f7;
+  --fg: #1c1c1e;
+  --muted: #6e6e73;
+  --surface: #ffffff;
+  /* Never the only signal: --good is paired with bold weight, --danger with
+     an explicit word, so neither depends on colour vision. */
+  --good: #0a7d3c;
+  --danger: #c0392b;
+  --warning: #9a6b00;
+  /* Orange rather than --danger's red: red means destructive, this is a nudge. */
+  --priority: #c2410c;
+
+  --radius: 0.75rem;
+  --radius-lg: 0.9rem;
+  --radius-pill: 999px;
+  --gutter: 1rem;
+  --header-pad: 0.75rem;
+  --shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 0.25);
+
+  --font: -apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #000000;
+  --fg: #f2f2f7;
+  --muted: #8e8e93;
+  --surface: #1c1c1e;
+  --good: #34c759;
+  --danger: #ff6961;
+  --warning: #e8b923;
+  --priority: #ff8a3d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #000000;
+    --fg: #f2f2f7;
+    --muted: #8e8e93;
+    --surface: #1c1c1e;
+    --good: #34c759;
+    --danger: #ff6961;
+    --warning: #e8b923;
+    --priority: #ff8a3d;
+  }
+}
+
+html {
+  font-size: calc(100% * var(--scale));
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  line-height: 1.4;
+}
+
+button,
+[role='button'],
+a {
+  /* Kills Safari double-tap zoom, which would otherwise eat a fast second tap. */
+  touch-action: manipulation;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
