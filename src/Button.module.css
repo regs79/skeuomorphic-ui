@@ -111,6 +111,8 @@
 .segment {
   flex: 1;
   padding: 0.6rem 0.5rem;
+  /* "Shelf" split over two lines in a narrow control is worse than a wider control. */
+  white-space: nowrap;
   border: 0;
   border-radius: calc(var(--radius) - 0.2rem);
   background: transparent;
